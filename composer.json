@@ -1,0 +1,39 @@
+{
+  "name": "mage-os/magento2-eventbridge-notifier",
+  "description": "An Amazon EventBridge notifier backed by the mage-os/async-events module.",
+  "type": "magento2-module",
+  "require": {
+    "php":  ">=7.0",
+    "magento/framework": "*",
+    "aws/aws-sdk-php": "^3.110"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://repo.magento.com/"
+    }
+  ],
+  "require-dev": {
+    "squizlabs/php_codesniffer": "~3.5",
+    "magento/magento-coding-standard": "^6.0"
+  },
+    "license": [
+      "GPL-3.0-only"
+  ],
+  "autoload": {
+    "files": [
+        "registration.php"
+    ],
+    "psr-4": {
+      "MageOS\\EventBridge\\": ""
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/)"
+    ],
+    "post-update-cmd": [
+      "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/)"
+    ]
+  }
+}
