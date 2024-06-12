@@ -1,2 +1,1 @@
-# mageos-async-events-aws
-This module provides events integrations to AWS.
+# MageOS Events integration for AWS
